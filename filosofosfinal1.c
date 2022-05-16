@@ -20,6 +20,8 @@ struct tenedor
 void * comer(void * h1){
 	struct filosofo * fil;
 	fil = (struct filosofo*) h1;
+
+    //cuandoel filosofo esta pensando no puede comer
 	printf("%s %s \n" , fil->nombre, "esta pensando");
 
 	while(fil->cantcomida>0){
