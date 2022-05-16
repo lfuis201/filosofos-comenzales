@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 //cantidad de comida en cada plato
+//comida es global
 int comida;
 struct filosofo
 {
