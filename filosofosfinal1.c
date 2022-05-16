@@ -16,9 +16,34 @@ struct tenedor
 	//0 significa que el tenedoo esta desocupado y 1 ocupado
 	int estado;
 };
-
+//cantidad de camida en 0
 void * comer(void * h1){
-	
+	struct filosofo * fil;
+	fil = (struct filosofo*) h1;
+	printf("%s %s \n" , fil->nombre, "esta pensando");
+
+	while(fil->cantcomida>0){
+		//si los 2 tenedores estan libres el filosofo puede comer
+		if(fil->ten1->estado == 0 && fil->ten2->estado == 0){
+			printf("%s %s \n" , fil->nombre, "tiene hambre");
+
+			//el filosofo agarra los tenedores
+			fil->ten1->estado = fil->ten2->estado = 1;
+			printf("%s %s \n" , fil->nombre, "agarro los 2 tenedores");
+			while (fil->cantcomida > 0)
+			{
+				fil->cantcomida--;
+				printf("%s %s \n" , fil->nombre, "esta comiendo");
+			}
+			
+		}
+		else{
+			printf("%s %s \n" , fil->nombre, "no puede comer");
+		}
+	}
+	//el filosofo termina de comer y libera un tenedor
+	fil->ten1->estado = fil->ten2->estado = 0;
+	printf("%s %s \n" , fil->nombre, "termino de comer");
 }
 
 int main()
