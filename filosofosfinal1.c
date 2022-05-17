@@ -3,7 +3,7 @@
 #include <pthread.h>
 //cantidad de comida en cada plato
 //comida es global
-int comida;
+int comida = 10;
 struct filosofo
 {
 	char * nombre;
